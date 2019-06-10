@@ -27,6 +27,10 @@
 	<sql id="BASE_COLUMN">
 		id,order_id,product_name,product_id,amount,price,count,remark,trade_time,create_time,update_time
 	</sql>
+	
+	<sql id="COLUMN_WITHOUT_ID">
+		order_id,product_name,product_id,amount,price,count,remark,trade_time,create_time,update_time
+	</sql>
 
 	<select id="getOrderById" resultMap="BaseResultMap" parameterType="LONG">
 		SELECT
@@ -40,8 +44,9 @@
 	<insert id="saveOrder" parameterType="com.sharding.bean.Order">
 		insert into
 		<include refid="BASE_TABLE" />
+		(<include refid="COLUMN_WITHOUT_ID" />)
 		values
-		(null,#{orderId},
+		(#{orderId},
 		#{productName},
 		#{productId},
 		#{amount},
