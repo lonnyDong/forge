@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: eureka-orderCenter_2
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.yulong
+Build-Jdk: 1.8.0_201
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/forge/eureka-orderCenter_2
+Created-By: Maven Integration for Eclipse
+

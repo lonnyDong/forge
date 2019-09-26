@@ -1,14 +1,11 @@
-sharding-sphere  4.0.0 改动情况一览
-一 配置、依赖变动
-1) sharding-sphere 从3.0 版本提交给apache基金会，官网域名变更为：https://shardingsphere.apache.org
+sharding-sphere 3.1.0.M1 + mybatis 分库分表案例
 
-2) sharding-sphere 4.0 maven 依赖变更：统一变更为org.apache
-	<groupId>org.apache.shardingsphere</groupId>
-	<artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-	<version>4.0.0-RC1</version>
-3)  spring 配置项前缀变更为：spring.shardingsphere
+order 分库分表2*4
+2 x 4 分库分表的问题
+首先对order_id 进行摸2，那么偶数的一定是ds0，既然摸为偶数那么，再对order_id 模4 
+余数一定是0或2 所以1，3 就必然不存在
+这里仅作为示例，实际中是不可以对同一个字段 2x4 分库分表的，会造成有些表空数据
 
-4）其他
-
+user 不分库也部分表
 
 

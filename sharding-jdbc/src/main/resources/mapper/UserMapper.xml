@@ -36,7 +36,7 @@
     </select>
     
     
-    <insert id="saveUser" parameterType="com.sharding.bean.User">
+    <insert id="saveUser" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.sharding.bean.User">
         insert into 
         <include refid="BASE_TABLE"/>
         (
