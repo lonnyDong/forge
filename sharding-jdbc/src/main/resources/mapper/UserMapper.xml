@@ -23,6 +23,9 @@
     <sql id="BASE_COLUMN">
         id,password,username,tradepwd,email,phone,name,id_no,status,remark,create_time,update_time
     </sql>
+    <sql id="BASE_COLUMN_WITHOUT_ID">
+        password,username,tradepwd,email,phone,name,id_no,status,remark,create_time,update_time
+    </sql>
  
     <select id="getUserById" resultMap="BaseResultMap" parameterType="LONG">
         SELECT
@@ -33,11 +36,14 @@
     </select>
     
     
-    <insert id="saveUser" parameterType="com.sharding.bean.User">
+    <insert id="saveUser" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.sharding.bean.User">
         insert into 
         <include refid="BASE_TABLE"/>
+        (
+        <include refid="BASE_COLUMN_WITHOUT_ID"/>
+        )
         values
-        (null,#{password}
+        (#{password}
         ,#{username},  
          #{tradepwd},  
          #{email},  

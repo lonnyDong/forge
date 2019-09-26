@@ -1,0 +1,50 @@
+#注册中心地址
+eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8582/eureka/   
+        
+spring:
+    application:
+        name: gateway-service
+    cloud: 
+      gateway: 
+        httpclient:
+          connect-timeout: 10000
+          response-timeout: 10000
+        default-filters:
+        discovery:
+          locator:
+            enabled: true  
+       
+        routes:
+        #用户服务
+        - id: EURKA-CLIENT
+          uri: lb://EURKA-CLIENT
+          filters:
+          predicates:
+          - Path=/user/**
+        #订单服务
+        - id: ORDER-CENTER
+          uri: lb://ORDER-CENTER
+          filters:
+          predicates:
+          - Path=/order/**
+                  
+    http:
+        encoding:
+          charset: UTF-8
+          enabled: true
+          force: true
+ 
+
+                  
+#检索路由过滤器-管理api        
+management:
+   endpoint:
+      gateway:
+        enabled: true
+   endpoints:      
+      web:
+        exposure:
+          include: gateway

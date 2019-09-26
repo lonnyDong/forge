@@ -25,11 +25,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	@GetMapping("/order/save")
 	public void saveOrder() {
-			int a = new java.util.Random().nextBoolean() ? 1 : 0;
-			Long id = IdWorker.getWorkID();
+			int a = new java.util.Random().nextInt(10);
+			Long id = IdWorker.getWorkID()+a;
 			System.out.println("id:" + id + " 求余： " + id % 4);
 			Order build = Order.builder().amount(new BigDecimal("60.00")).count(5).price(new BigDecimal("12"))
-					.orderId(654907019362344963L).productId(new Long(new java.util.Random().nextInt(99999))).productName("book")
+					.orderId(id).productId(new Long(new java.util.Random().nextInt(99999))).productName("book")
 					.createTime(new Date()).updateTime(new Date()).tradeTime(new Date()).remark("mark").id(1L).build();
 
 			orderDao.saveOrder(build);
@@ -44,14 +44,6 @@ public class OrderServiceImpl implements OrderService {
 		return list;
 	}
 
-	public static void main(String[] args) {
-
-//		for (int i = 0; i < 200; i++) {
-//			int a = new java.util.Random().nextBoolean() ? 1 : 0;
-//			Long workID = IdWorker.getWorkID() + a;
-//			System.out.println("workID"+workID+" :"+workID % 4);
-//		}
-	}
 
 	@Override
 	public Order getOrderByOrderId(Long orderId) {

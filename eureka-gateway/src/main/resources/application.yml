@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active:
+    - dev
+
+
+server:
+  port: 8580
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+
+  
+          
+    

@@ -3,7 +3,7 @@ server:
  
 spring:
   application:
-    name: eurka-client
+    name: user-service
   profiles:
     active:
     - default
@@ -28,9 +28,19 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8582/eureka/
 
-      
+     
 feign:
   hystrix:
     enabled: true 
   okhttp:
     enabled: true
+
+#配置熔断的超时时间
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 1
+            

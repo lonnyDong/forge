@@ -5,5 +5,5 @@
     <artifactId>forge</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>service-api</artifactId>
+  <artifactId>orderCenter-api</artifactId>
 </project>

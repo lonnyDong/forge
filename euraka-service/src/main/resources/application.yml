@@ -1,9 +1,8 @@
 server:
   port: 8583
- 
 spring:
   application:
-    name: eurka-service
+    name: order-center
   profiles:
     active:
     - default
