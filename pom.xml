@@ -47,6 +47,12 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.48</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -72,13 +78,18 @@
 
 	<modules>
 		<module>eureka-server</module>
-		<module>euraka-service</module>
+		<module>order-service</module>
+		<module>order-service2</module>
 		<module>orderCenter-api</module>
 		<module>eurka-client</module>
 		<module>sentinel-client</module>
 		<module>sharding-jdbc</module>
 		<module>TiDBdemo</module>
 		<module>eureka-gateway</module>
-		<module>eureka-orderCenter_2</module>
-	</modules>
+		<module>feign-demo</module>
+        <module>spring-interface-test</module>
+        <module>euraka-actuator</module>
+		<module>sc-alibaba-dubbo-service</module>
+        <module>orderCenter-api</module>
+    </modules>
 </project>

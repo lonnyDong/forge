@@ -1,0 +1,46 @@
+server:
+  port: 8601
+ 
+spring:
+  application:
+    name: spring-service
+  profiles:
+    active:
+    - default
+    
+mango:
+  scan-package: cn.com.dao
+  #mango引用数据源名配置，ds1和ds2..是数据源的key，可以自定义，如果没有slave，可以不配置。
+  #mango中的连接池使用hikaricp，所以hikaricp中的配置在此都可以配置。
+  datasources:
+    - name: ds1
+      master:
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql:///sino?useSSL=false&serverTimezone=UTC
+        user-name: root
+        password: root@!123
+        maximum-pool-size: 4
+        connection-timeout: 3000    
+    
+    
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8582/eureka/
+
+     
+feign:
+  hystrix:
+    enabled: true 
+  okhttp:
+    enabled: true
+
+#配置熔断的超时时间
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 1
+            
