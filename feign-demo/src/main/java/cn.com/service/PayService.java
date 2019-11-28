@@ -9,9 +9,6 @@ import java.util.Map;
 
 /**
  * @author yulong
- *
- *
- *
  */
 @FeignClient(name = "alipayApi", url = "https://openapi.alipay.com/gateway.do")
 public interface PayService {
@@ -20,7 +17,7 @@ public interface PayService {
      * 统一收单交易关闭接口
      */
     @PostMapping("/alipay.trade.close")
-    public String close(@RequestBody Map<String, Object> HashMap);
+    String close(@RequestBody Map<String, Object> HashMap);
 
 
     /**
@@ -30,7 +27,7 @@ public interface PayService {
      * @return
      */
     @PostMapping("/alipay.trade.create")
-    public String create(@RequestBody Map<String, Object> HashMap);
+    String create(@RequestBody Map<String, Object> HashMap);
 
     /**
      * 统一收单交易支付接口
@@ -39,7 +36,7 @@ public interface PayService {
      * @return
      */
     @PostMapping("/alipay.trade.pay")
-    public String pay(@RequestBody Map<String, Object> HashMap);
+    String pay(@RequestBody Map<String, Object> HashMap);
 
 
     /**
@@ -49,6 +46,6 @@ public interface PayService {
      * @return
      */
     @PostMapping("/koubei.trade.itemorder.query")
-    public String query(@RequestBody Map<String, Object> HashMap);
+    String query(@RequestBody Map<String, Object> HashMap);
 
 }

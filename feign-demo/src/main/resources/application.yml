@@ -29,21 +29,53 @@ eureka:
       defaultZone: http://localhost:8582/eureka/
 feign:
   hystrix:
-    enabled: true 
+    enabled: true
   httpclient:
     enabled: true
 
 
+
 #配置熔断的超时时间
-#hystrix:
-#  command:
-#    default:
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+  threadpool:
+    default:
+      coreSize: 1
+      maxQueueSize: 6
+      circuitBreaker:
+        sleepWindowInMilliseconds: 10000
 #      execution:
 #        isolation:
-#          thread:
-#            timeoutInMilliseconds: 1
+#          semaphore:
+#            maxConcurrentRequests:
+
+
 
 logging:
   level:
     cn.com.service.AccountService: debug
     cn.com.OrginalFeignTest: debug
+
+#
+#ribbon:
+#  ReadTimeout: 3000
+#  ConnectTimeout: 3000
+#  MaxAutoRetries: 1
+#  MaxAutoRetriesNextServer: 1
+#  OkToRetryOnAllOperations: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude:
+  endpoint:
+    health:
+      show-details: always

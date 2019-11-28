@@ -19,13 +19,13 @@ public class OrderServiceHystrixImpl implements OrderService {
 
     Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
+
     @Override
     public String create(@RequestBody Map<String, Object> HashMap) {
 
         LOGGER.error("创建订单失败进入熔断,参数：{}", JSONObject.toJSONString(HashMap));
         return "系统暂时不提供服务";
     }
-
     @Override
     public String getOrderDetail(@RequestParam(name = "orderId") Long orderId) {
         LOGGER.error("获取订单详情进入熔断,参数：{}", JSONObject.toJSONString(orderId));
@@ -33,10 +33,16 @@ public class OrderServiceHystrixImpl implements OrderService {
     }
 
     @Override
-    public String productList() {
-        LOGGER.error("获取产品列表详情进入熔断,返回缓存数据");
+    public String productGetOrder(@RequestParam(name = "uid") Long uid) {
+        LOGGER.error("获取订单进入熔断,返回缓存数据");
 
         return "缓存订单列表：1，2，3，4....";
+    }
+
+    @Override
+    public String getProductList() {
+        LOGGER.error("获取产品列表详情进入熔断,返回缓存数据");
+        return "{\"productId\":\"1\"}";
     }
 
 

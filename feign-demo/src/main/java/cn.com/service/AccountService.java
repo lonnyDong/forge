@@ -18,11 +18,11 @@ public interface AccountService {
 
 
     @RequestMapping(value="/validateAndCacheCardInfo.json?_input_charset=utf-8&cardNo=6216665000001788266&cardBinCheck=true",method=RequestMethod.GET)
-    public String getBankInfo();
+    String getBankInfo();
 
 
     @RequestMapping(value="/validateAndCacheCardInfo.json",method=RequestMethod.GET)
-    public String getBankInfo(@RequestParam("_input_charset")String charset,@RequestParam("cardNo")String cardNo);
+    String getBankInfo(@RequestParam("_input_charset")String charset,@RequestParam("cardNo")String cardNo);
 
 
 }
