@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seata.account.dao.AccountDao">
+
+    <resultMap id="BaseResultMap" type="com.account.bean.SeataAccount">
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="age" jdbcType="VARCHAR" property="age" />
+        <result column="phone" jdbcType="VARCHAR" property="phone" />
+        <result column="account_no" jdbcType="VARCHAR" property="accountNo" />
+        <result column="id_no" jdbcType="VARCHAR" property="idNo" />
+    </resultMap>
+
+    <insert id="createAccount" useGeneratedKeys="true" keyProperty="id" parameterType="com.account.bean.SeataAccount">
+
+       insert into tb_seata_account(name,age,phone,account_no,id_no)  VALUES (#{seataAccount.name},
+       #{seataAccount.age},#{seataAccount.phone},
+       #{seataAccount.accountNo},#{seataAccount.idNo});
+
+    </insert>
+
+
+    <!--查询年龄大于 12 的所有user的信息  parameterType:传递参数的类型  resultType:返回值类型    -->
+    <select id="findOrd" parameterType="String" resultType="com.account.bean.SeataAccount">
+        select * from account where age > #{age}
+    </select>
+
+</mapper>

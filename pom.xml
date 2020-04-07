@@ -91,5 +91,8 @@
         <module>euraka-actuator</module>
 		<module>sc-alibaba-dubbo-service</module>
         <module>orderCenter-api</module>
-    </modules>
+		<module>seata-user</module>
+        <module>seateAccount</module>
+		<module>seata-account-api</module>
+	</modules>
 </project>

@@ -1,0 +1,51 @@
+server:
+  port: 8501
+spring:
+  application:
+    name: account-Center
+  profiles:
+    active:
+      - default
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/forge1?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: root123
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  jmx:
+    enabled: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8582/eureka/
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.seata.account.bean
+#seata:
+#  service:
+#    vgroup-mapping:
+#
+#  tx-service-group: accountCenter
+#  registry:
+#    type: eureka
+#    eureka:
+#      service-url: http://localhost:8582/eureka/
+
+seata:
+  enabled: true
+  application-id: ${spring.application.name}  # 可以自定义
+  tx-service-group: seller_seata_group # 此处的名称一定要与 vgroup-mapping下配置的参数保持一致
+  registry:
+      type: eureka
+      eureka:
+        service-url: http://localhost:8582/eureka/
+  service:
+    grouplist:
+      # seata seaver的 地址配置，此处可以集群配置是个数组
+      default:  192.168.128.134:8091
+    vgroupMapping:
+      # key一定要与tx-service-group一致
+      seller_seata_group: default
+  # 这边自动代理关掉是因为，, seata源码中SeataDataSourceBeanPostProcessor的初始化要比我的datasource初始话晚，导致datasoure不会被包装为代理类，此处我自己代码做了处理
+  enableAutoDataSourceProxy: false

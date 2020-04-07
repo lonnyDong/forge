@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seata.user.dao.UserDao">
+
+    <resultMap id="BaseResultMap" type="com.seata.user.bean.SeataUser">
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="age" jdbcType="VARCHAR" property="age" />
+        <result column="phone" jdbcType="VARCHAR" property="phone" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+    </resultMap>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="com.seata.user.bean.SeataUser">
+
+       insert into tb_seata_user(name,age,phone,address)  VALUES (#{seataUser.name},#{seataUser.age},#{seataUser.phone},#{seataUser.address});
+
+    </insert>
+
+    <update id="updateAge" >
+
+      update tb_seata_user set age = #{age} where id= #{id}
+    </update>
+
+
+    <update id="updatePhone" >
+
+      update tb_seata_user set phone = #{phone} where id= #{id}
+    </update>
+    <select id="findAll" resultType="com.seata.user.bean.SeataUser">
+        select * from user
+    </select>
+
+    <!--查询年龄大于 12 的所有user的信息  parameterType:传递参数的类型  resultType:返回值类型    -->
+    <select id="findOrd" parameterType="String" resultType="com.seata.user.bean.SeataUser">
+        select * from user where age > #{age}
+    </select>
+
+</mapper>
