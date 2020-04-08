@@ -1,0 +1,18 @@
+seata:
+  enabled: true
+  application-id: seataUserId
+  tx-service-group: user_seata_group
+  registry:
+    type: eureka
+    eureka:
+      application: bbb
+      service-url: http://172.30.103.67:8582/eureka/
+  service:
+#    grouplist:
+#      # seata seaver的 地址配置，此处可以集群配置是个数组
+#      default: 192.168.128.134:8091
+    vgroup_mapping:
+      # key一定要与tx-service-group一致
+      user_seata_group: default
+#  # 这边自动代理关掉是因为，, seata源码中SeataDataSourceBeanPostProcessor的初始化要比我的datasource初始话晚，导致datasoure不会被包装为代理类，此处我自己代码做了处理
+#  enableAutoDataSourceProxy: false
