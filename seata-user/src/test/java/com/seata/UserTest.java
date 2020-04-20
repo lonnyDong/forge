@@ -36,7 +36,7 @@ public class UserTest {
     public void testUser() {
         SeataUser seataUser = new SeataUser();
         seataUser.setName("颤三"+ new Random().nextInt(9999));
-        seataUser.setAge(new Random().nextInt(120)+"");
+        seataUser.setAge(new Random().nextInt(120));
         seataUser.setPhone("131");
         seataUser.setAddress("ddd");
         int add = userDao.add(seataUser);

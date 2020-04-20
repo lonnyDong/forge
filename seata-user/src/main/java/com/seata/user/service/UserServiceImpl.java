@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private AccountCenterService accountCenterServiceImpl;
-    @GlobalTransactional
+//    @GlobalTransactional
     @Override
     public void add(SeataUser seataUser) {
 //
@@ -36,21 +36,24 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    @Transactional(rollbackFor=Exception.class,propagation = Propagation.REQUIRES_NEW)
+//    @Transactional(rollbackFor=Exception.class,propagation = Propagation.REQUIRES_NEW)
     @Override
     public void updatePhone(SeataUser seataUser) {
         userDao.updatePhone(seataUser.getId(),seataUser.getPhone());
         System.out.println(19/0);
     }
 
-    @Transactional(rollbackFor=Exception.class,propagation = Propagation.REQUIRES_NEW)
+//    @Transactional(rollbackFor=Exception.class,propagation = Propagation.REQUIRES_NEW)
     @Override
+//    @GlobalTransactional
     public void updateAge(SeataUser seataUser) {
-        userDao.updateAge(seataUser.getId(),seataUser.getAge());
+        SeataUser dbSeataUser =  userDao.getUserById(seataUser.getId());
+        userDao.updateAge(dbSeataUser.getId(),seataUser.getAge());
 //        System.out.println(1/0);
     }
 
-    @Transactional(rollbackFor=Exception.class)
+//    @Transactional(rollbackFor=Exception.class)
+//    @GlobalTransactional
     @Override
     public void updateUser() {
         SeataUser seataUser = new SeataUser();
@@ -58,7 +61,7 @@ public class UserServiceImpl implements UserService {
         seataUser.setId(1);
         SeataUser seataUser2 = new SeataUser();
         seataUser2.setId(2);
-        seataUser2.setAge("20");
+        seataUser2.setAge(20);
 
         //更新age
         this.updateAge(seataUser2);

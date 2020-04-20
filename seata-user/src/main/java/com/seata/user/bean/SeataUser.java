@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class SeataUser implements Serializable {
     private int id ;
     private String name ;
-    private String age ;
+    private Integer age ;
     private String phone ;
     private String address;
 

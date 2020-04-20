@@ -5,6 +5,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.sql.SQLException;
+import java.util.Properties;
+
 /**
  * Druid数据源配置
  * 
@@ -24,6 +27,18 @@ public class DruidConfiguration {
 	@ConfigurationProperties(prefix = "spring.datasource")
 	public DruidDataSource druidDataSource() {
 		DruidDataSource druidDataSource = new DruidDataSource();
+		Properties properties = new Properties();
+		properties.setProperty("config.decrypt","true");
+		properties.setProperty("config.decrypt.key","MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANhJs3Xt0I8BAvaR24TgKV54Y2YxYp3etll+9enyeeokZ0RSumjlmJC2nqBhhRi1mOcHLYd0croBHI03xbWsu5ECAwEAAQ==");
+
+		druidDataSource.setConnectProperties(properties);
+		try {
+			druidDataSource.setFilters("config");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+
 		return druidDataSource;
 	}
 

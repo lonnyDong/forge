@@ -8,10 +8,14 @@ spring:
     - default
 
   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/forge?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: root
-    password: root123
+    password: SW7I+Rv68Q8reKY3J7H6dg6GL+EHdvVOLHmNaft3hC8rxU8KvZNW17kSSPEEDvU4Xp0g77PQeIRvg7S9rgN/6g==
+
+
+
 eureka:
   client:
     serviceUrl:

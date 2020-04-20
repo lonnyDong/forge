@@ -34,4 +34,8 @@
         select * from user where age > #{age}
     </select>
 
+    <select id="getUserById" parameterType="Integer" resultType="com.seata.user.bean.SeataUser">
+        select * from tb_seata_user where id =#{id}
+    </select>
+
 </mapper>

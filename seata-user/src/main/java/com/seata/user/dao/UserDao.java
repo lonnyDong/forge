@@ -15,5 +15,11 @@ public interface UserDao {
 
     void updatePhone(@Param("id") int id,@Param("phone") String phone);
 
-    void updateAge(@Param("id")int id,@Param("age") String age);
+    void updateAge(@Param("id")int id,@Param("age") int age);
+
+    SeataUser getUserById(@Param("id")int id);
+
+    //批量更新数据：
+
+
 }
