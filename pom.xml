@@ -94,5 +94,6 @@
 		<module>seata-user</module>
         <module>seateAccount</module>
 		<module>seata-account-api</module>
-	</modules>
+        <module>strategy</module>
+    </modules>
 </project>
