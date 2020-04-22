@@ -2,6 +2,7 @@ package event.listeners;
 
 import event.events.OrderCreateEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
@@ -21,3 +22,4 @@ public class OrderSmsListener implements ApplicationListener<OrderCreateEvent> {
         System.out.println("订单创建 发送短信完成");
     }
 }
+

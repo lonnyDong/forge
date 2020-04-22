@@ -4,6 +4,7 @@ import event.events.OrderCreateEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void createOrder() {
-//1.创建订单
+        //1.创建订单
         System.out.println("订单创建成功");
         //2.发布事件
 
@@ -32,5 +33,13 @@ public class OrderServiceImpl implements OrderService {
         applicationContext.publishEvent(orderCreateEvent);//ApplicationContext是我们的事件容器上层，我们发布事件，也可以通过此容器完成发布
         //applicationEventPublisher.publishEvent(orderCreateEvent);//也可以
 
+    }
+
+
+
+    @EventListener(OrderCreateEvent.class)
+    public void sendSms() {
+
+        System.out.println("订单创建...注解短信");
     }
 }
