@@ -95,5 +95,6 @@
         <module>seateAccount</module>
 		<module>seata-account-api</module>
         <module>strategy</module>
+        <module>spring-event</module>
     </modules>
 </project>
