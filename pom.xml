@@ -80,5 +80,6 @@
 		<module>TiDBdemo</module>
 		<module>eureka-gateway</module>
 		<module>eureka-orderCenter_2</module>
-	</modules>
+        <module>mybatis.gengerator</module>
+    </modules>
 </project>
