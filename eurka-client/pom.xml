@@ -21,11 +21,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<dependency>
+	<!--	<dependency>
 			<groupId>org.jfaster</groupId>
 			<artifactId>mango-spring-boot-starter</artifactId>
 			<version>2.0.1</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

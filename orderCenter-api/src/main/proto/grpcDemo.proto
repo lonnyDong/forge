@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cn.com.dong.grpc.lib";
+
+
+package device;
+
+// The device service definition.
+//服务端的方法
+service UserInfoService {
+    // Sends a message
+    rpc getUserInfo (UserInfoRequest) returns (UserInfo){}
+    rpc updaetUserInfo (UserInfo) returns (UserInfo){}
+}
+
+
+message UserInfo {
+     string id=1;
+     string serialNum=2;
+     string userNum=3;
+     int32  status=4;
+     int32  type=5;
+     string address=6;
+     string createtime=7;
+     string updatetime=8;
+}
+
+
+message UserInfoRequest {
+     string id = 1;
+}
+

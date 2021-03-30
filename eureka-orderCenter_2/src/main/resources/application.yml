@@ -10,3 +10,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8582/eureka/
+grpc:
+  server:
+    port: 9900

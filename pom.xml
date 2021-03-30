@@ -81,5 +81,6 @@
 		<module>eureka-gateway</module>
 		<module>eureka-orderCenter_2</module>
         <module>mybatis.gengerator</module>
+        <module>orderCenter-api</module>
     </modules>
 </project>
